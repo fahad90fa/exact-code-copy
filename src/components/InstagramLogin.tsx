@@ -1,6 +1,6 @@
 import { useState } from "react";
 import phoneCollage from "@/assets/phone-collage.png";
-
+import instagramLogo from "@/assets/instagram-logo.png";
 const InstagramLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -34,9 +34,9 @@ const InstagramLogin = () => {
           {/* Right Side - Login Form */}
           <div className="w-full max-w-[350px] mx-auto lg:mx-0">
             {/* Instagram Logo */}
-            <h1 className="font-instagram text-5xl text-foreground text-center mb-8">
-              Instagram
-            </h1>
+            <div className="text-center mb-8">
+              <img src={instagramLogo} alt="Instagram" className="h-[51px] mx-auto" />
+            </div>
 
             {/* Login Form */}
             <form onSubmit={handleSubmit} className="space-y-2">
