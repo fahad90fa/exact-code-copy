@@ -35,7 +35,7 @@ const InstagramLogin = () => {
           <div className="w-full max-w-[350px] mx-auto lg:mx-0">
             {/* Instagram Logo */}
             <div className="text-center mb-8">
-              <img src={instagramLogo} alt="Instagram" className="h-[51px] mx-auto" />
+              <img src={instagramLogo} alt="Instagram" className="h-[71px] mx-auto" />
             </div>
 
             {/* Login Form */}
