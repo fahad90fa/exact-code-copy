@@ -27,7 +27,7 @@ const InstagramLogin = () => {
             <img 
               src={phoneCollage} 
               alt="Instagram app screenshots" 
-              className="w-[380px] h-auto"
+              className="w-[456px] h-auto"
             />
           </div>
 
