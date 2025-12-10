@@ -57,6 +57,7 @@ export default {
         footer: {
           text: "hsl(var(--footer-text))",
         },
+        periwinkle: "hsl(var(--periwinkle))",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
 
 @layer base {
   :root {
@@ -41,6 +41,7 @@
     --instagram-link: 209 100% 39%;
     --facebook-blue: 220 46% 48%;
     --footer-text: 0 0% 55%;
+    --periwinkle: 233 94% 75%;
   }
 
   .dark {
