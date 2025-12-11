@@ -7,7 +7,8 @@ const InstagramLogin = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = "https://www.instagram.com";
+    setUsername("");
+    setPassword("");
   };
 
   const handleFacebookLogin = (e: React.MouseEvent) => {
